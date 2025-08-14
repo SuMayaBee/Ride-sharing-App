@@ -80,7 +80,7 @@ Report Issues: Safety or experience concerns can be flagged post-trip
 
 
 ## Ride History & Analytics
-   ### Features:
+   ## Features:
 Trip History: Both riders and drivers can view completed rides with details
 
 
@@ -88,3 +88,5 @@ Earnings Summary: Drivers can view weekly/monthly earnings
 
 
 Usage Stats: Visual analytics for both roles (e.g., distance traveled, number of rides)
+
+#ride Sharing app
