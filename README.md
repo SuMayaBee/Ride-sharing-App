@@ -91,7 +91,9 @@ This application follows a **monolithic architecture** pattern with clear separa
 - **Payment Processing**: Multiple payment methods (Card, PayPal, Apple Pay, Google Pay)
 - **Ride History**: View past trips and payments
 - **Fare Estimation**: Get price estimates before booking
+<img width="1915" height="994" alt="Screenshot from 2025-08-18 06-44-53" src="https://github.com/user-attachments/assets/f571972f-1da6-4a70-8e89-675e7c18001c" />
 
+  
 ### 🚗 Captain (Driver) Features
 - **Driver Registration**: Register with vehicle details
 - **Ride Acceptance**: Accept or decline ride requests
@@ -99,6 +101,8 @@ This application follows a **monolithic architecture** pattern with clear separa
 - **Earnings Tracking**: View trip earnings and payment history
 - **Vehicle Management**: Update vehicle information
 - **Real-time Status**: Online/offline status management
+<img width="1915" height="994" alt="Screenshot from 2025-08-18 06-45-14" src="https://github.com/user-attachments/assets/b6d87e44-8c49-42cc-97e6-da1768d3d9ad" />
+
 
 ### 🔧 System Features
 - **Real-time Communication**: WebSocket-based live updates
