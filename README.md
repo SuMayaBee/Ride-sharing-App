@@ -1,4 +1,4 @@
-# 🚗 Ride-Sharing Application
+# 🚗 RideSphare - A Ride-Sharing Application
 
 A full-stack ride-sharing platform built with Node.js, Express, React, and MongoDB. This application provides comprehensive ride booking services with real-time tracking, payment processing, and dual user interfaces for both passengers and drivers (captains).
 
