@@ -13,45 +13,54 @@ import CaptainProtectWrapper from './pages/CaptainProtectWrapper'
 import CaptainLogout from './pages/CaptainLogout'
 import Riding from './pages/Riding'
 import CaptainRiding from './pages/CaptainRiding'
+import PaymentHistory from './components/PaymentHistory'
+import { PaymentProvider } from './context/PaymentContext'
 import 'remixicon/fonts/remixicon.css'
 
 const App = () => {
 
   return (
-    <div>
-      <Routes>
-        <Route path='/' element={<Start />} />
-        <Route path='/login' element={<UserLogin />} />
-        <Route path='/riding' element={<Riding />} />
-        <Route path='/captain-riding' element={<CaptainRiding />} />
+    <PaymentProvider>
+      <div>
+        <Routes>
+          <Route path='/' element={<Start />} />
+          <Route path='/login' element={<UserLogin />} />
+          <Route path='/riding' element={<Riding />} />
+          <Route path='/captain-riding' element={<CaptainRiding />} />
 
-        <Route path='/signup' element={<UserSignup />} />
-        <Route path='/captain-login' element={<Captainlogin />} />
-        <Route path='/captain-signup' element={<CaptainSignup />} />
-        <Route path='/home'
-          element={
-            <UserProtectWrapper>
-              <Home />
+          <Route path='/signup' element={<UserSignup />} />
+          <Route path='/captain-login' element={<Captainlogin />} />
+          <Route path='/captain-signup' element={<CaptainSignup />} />
+          <Route path='/home'
+            element={
+              <UserProtectWrapper>
+                <Home />
+              </UserProtectWrapper>
+            } />
+          <Route path='/user/logout'
+            element={<UserProtectWrapper>
+              <UserLogout />
             </UserProtectWrapper>
-          } />
-        <Route path='/user/logout'
-          element={<UserProtectWrapper>
-            <UserLogout />
-          </UserProtectWrapper>
-          } />
-        <Route path='/captain-home' element={
-          <CaptainProtectWrapper>
-            <CaptainHome />
-          </CaptainProtectWrapper>
+            } />
+          <Route path='/payment-history'
+            element={<UserProtectWrapper>
+              <PaymentHistory />
+            </UserProtectWrapper>
+            } />
+          <Route path='/captain-home' element={
+            <CaptainProtectWrapper>
+              <CaptainHome />
+            </CaptainProtectWrapper>
 
-        } />
-        <Route path='/captain/logout' element={
-          <CaptainProtectWrapper>
-            <CaptainLogout />
-          </CaptainProtectWrapper>
-        } />
-      </Routes>
-    </div>
+          } />
+          <Route path='/captain/logout' element={
+            <CaptainProtectWrapper>
+              <CaptainLogout />
+            </CaptainProtectWrapper>
+          } />
+        </Routes>
+      </div>
+    </PaymentProvider>
   )
 }
 

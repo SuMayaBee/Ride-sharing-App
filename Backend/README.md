@@ -479,3 +479,164 @@ GET /rides/get-fare?pickup=1600+Amphitheatre+Parkway,+Mountain+View,+CA&destinat
   "message": "Error message"
 }
 ```
+
+## Payment API Endpoints
+
+## `/payments/process` Endpoint
+
+### Description
+
+Processes a payment for a ride using various payment methods including credit/debit cards, PayPal, Apple Pay, and Google Pay.
+
+### HTTP Method
+
+`POST`
+
+### Authentication
+
+Requires a valid JWT token in the Authorization header:
+`Authorization: Bearer <token>`
+
+### Request Body
+
+The request body should be in JSON format and include the following fields:
+
+- `rideId` (string, required): The ID of the ride to pay for.
+- `amount` (number, required): The payment amount (minimum 0.01).
+- `paymentMethod` (string, required): Payment method ('card', 'paypal', 'apple_pay', 'google_pay', 'wallet').
+- `cardDetails` (object, required if paymentMethod is 'card'):
+  - `cardNumber` (string): Card number (13-19 digits).
+  - `expiryMonth` (number): Expiry month (1-12).
+  - `expiryYear` (number): Expiry year (current year or later).
+  - `cvv` (string): CVV code (3-4 digits).
+
+### Example Response
+
+```json
+{
+  "success": true,
+  "message": "Payment processed successfully",
+  "payment": {
+    "id": "payment_id",
+    "transactionId": "txn_abc123",
+    "amount": 25.50,
+    "status": "completed",
+    "paymentMethod": "card",
+    "processingFee": 0.74,
+    "createdAt": "2025-08-18T10:30:00Z"
+  }
+}
+```
+
+## `/payments/history` Endpoint
+
+### Description
+
+Retrieves the payment history for the authenticated user.
+
+### HTTP Method
+
+`GET`
+
+### Authentication
+
+Requires a valid JWT token in the Authorization header:
+`Authorization: Bearer <token>`
+
+### Query Parameters
+
+- `limit` (number, optional): Number of payments to retrieve (default: 10).
+- `offset` (number, optional): Number of payments to skip (default: 0).
+
+### Example Response
+
+```json
+{
+  "success": true,
+  "payments": [
+    {
+      "id": "payment_id",
+      "transactionId": "txn_abc123",
+      "amount": 25.50,
+      "status": "completed",
+      "paymentMethod": "card",
+      "ride": {
+        "pickup": "123 Main St",
+        "destination": "456 Oak Ave",
+        "fare": 25.50
+      },
+      "createdAt": "2025-08-18T10:30:00Z",
+      "cardDetails": {
+        "last4Digits": "4242",
+        "cardType": "visa"
+      }
+    }
+  ]
+}
+```
+
+## `/payments/:paymentId/refund` Endpoint
+
+### Description
+
+Requests a refund for a completed payment.
+
+### HTTP Method
+
+`POST`
+
+### Authentication
+
+Requires a valid JWT token in the Authorization header:
+`Authorization: Bearer <token>`
+
+### Request Body
+
+- `refundAmount` (number, optional): Amount to refund (defaults to full payment amount).
+- `reason` (string, optional): Reason for the refund request.
+
+### Example Response
+
+```json
+{
+  "success": true,
+  "message": "Refund processed successfully",
+  "refundId": "re_xyz789"
+}
+```
+
+## `/payments/methods/saved` Endpoint
+
+### Description
+
+Retrieves the saved payment methods for the authenticated user.
+
+### HTTP Method
+
+`GET`
+
+### Authentication
+
+Requires a valid JWT token in the Authorization header:
+`Authorization: Bearer <token>`
+
+### Example Response
+
+```json
+{
+  "success": true,
+  "paymentMethods": [
+    {
+      "id": "pm_card_visa_1234",
+      "type": "card",
+      "card": {
+        "brand": "visa",
+        "last4": "4242",
+        "expiryMonth": 12,
+        "expiryYear": 2025
+      },
+      "isDefault": true
+    }
+  ]
+}
+```

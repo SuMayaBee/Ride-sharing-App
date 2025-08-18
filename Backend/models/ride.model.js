@@ -41,6 +41,15 @@ const rideSchema = new mongoose.Schema({
     paymentID: {
         type: String,
     },
+    payment: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'payment',
+    },
+    paymentStatus: {
+        type: String,
+        enum: ['pending', 'completed', 'failed', 'refunded'],
+        default: 'pending'
+    },
     orderId: {
         type: String,
     },
