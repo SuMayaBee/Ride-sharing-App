@@ -66,7 +66,7 @@ module.exports.processPayment = async (req, res) => {
         console.error('Payment processing error:', error);
         res.status(500).json({
             success: false,
-            message: 'Internal server error during payment processing'
+            message: `Internal server error during payment processing ${error.message}`
         });
     }
 };
@@ -103,7 +103,7 @@ module.exports.getPaymentHistory = async (req, res) => {
         console.error('Payment history error:', error);
         res.status(500).json({
             success: false,
-            message: 'Failed to fetch payment history'
+            message: `Failed to fetch payment history ${error.message}`
         });
     }
 };
@@ -147,7 +147,7 @@ module.exports.getPaymentDetails = async (req, res) => {
         console.error('Payment details error:', error);
         res.status(500).json({
             success: false,
-            message: 'Failed to fetch payment details'
+            message: `Failed to fetch payment details ${error.message}`
         });
     }
 };
@@ -194,7 +194,7 @@ module.exports.requestRefund = async (req, res) => {
         console.error('Refund error:', error);
         res.status(500).json({
             success: false,
-            message: 'Failed to process refund'
+            message: `Failed to process refund ${error.message}`
         });
     }
 };
@@ -233,7 +233,7 @@ module.exports.getPaymentMethods = async (req, res) => {
         console.error('Payment methods error:', error);
         res.status(500).json({
             success: false,
-            message: 'Failed to fetch payment methods'
+            message: `Failed to fetch payment methods ${error.message}`
         });
     }
 };
