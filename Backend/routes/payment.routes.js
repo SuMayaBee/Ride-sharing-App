@@ -4,6 +4,7 @@ const { body } = require('express-validator');
 const authMiddleware = require('../middlewares/auth.middleware');
 const paymentController = require('../controllers/payment.controller');
 
+
 // Process payment
 router.post('/process',
     authMiddleware.authUser,
@@ -37,11 +38,13 @@ router.post('/process',
     paymentController.processPayment
 );
 
+
 // Get payment history
 router.get('/history',
     authMiddleware.authUser,
     paymentController.getPaymentHistory
 );
+
 
 // Get payment details
 router.get('/:paymentId',
