@@ -344,7 +344,7 @@ npm install -g nodemon
 nodemon server.js
 ```
 
-### 3. Frontend Setup
+### 3. Frontend Setup:
 
 #### Install Dependencies
 ```bash
@@ -352,7 +352,7 @@ cd frontend
 npm install
 ```
 
-#### Environment Configuration
+#### Environment Configuration:
 Verify the `.env` file in the frontend directory:
 
 ```bash
@@ -365,7 +365,7 @@ VITE_GOOGLE_MAPS_API_KEY=your-google-maps-api-key
 npm run dev
 ```
 
-### 4. Access the Application
+### 4. Access the Application:
 
 - **Frontend**: http://localhost:5173 (Vite default)
 - **Backend API**: http://localhost:3000
@@ -388,13 +388,14 @@ npm run dev
 
 ## 📚 API Documentation
 
-### Authentication Endpoints
+### Authentication Endpoints:
 - `POST /users/register` - User registration
 - `POST /users/login` - User login
 - `GET /users/profile` - Get user profile
 - `GET /users/logout` - User logout
 
-### Captain Endpoints
+
+### Captain Endpoints:
 - `POST /captains/register` - Captain registration
 - `POST /captains/login` - Captain login
 - `GET /captains/profile` - Get captain profile
