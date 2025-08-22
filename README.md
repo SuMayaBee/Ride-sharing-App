@@ -263,7 +263,7 @@ This application follows a **monolithic architecture** pattern with clear separa
 - **ride-started**: Ride initiation notifications
 - **ride-ended**: Ride completion notifications
 
-## 🎨 Frontend Implementation
+##  Frontend Implementation
 
 ### Technology Stack
 - **Framework**: React 18 with Hooks
@@ -504,6 +504,7 @@ uber-video/
 │   └── vite.config.js       # Vite configuration
 └── README.md                # This file
 ```
+
 
 ## 🔒 Security Features
 
